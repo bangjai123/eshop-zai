@@ -25,8 +25,8 @@
             <td th:text="${product.productQuantity}"></td>
             <td>
                 <div style="display: flex; gap: 10px;">
-                    <a th:href="@{/product/edit/{productId}(productId=${product.productId})}" class="btn btn-primary" style="width: 80px; border-radius: 5px;">Edit</a>
-                    <a th:href="@{/product/delete/{productId}(productId=${product.productId})}" class="btn btn-danger" style="width: 80px; border-radius: 5px;">Delete</a>
+                    <a th:href="@{/product/edit/{productName}(productName=${product.productName})}" class="btn btn-primary" style="width: 80px; border-radius: 5px;">Edit</a>
+                    <a th:href="@{/product/delete/{productName}(productName=${product.productName})}" class="btn btn-danger" style="width: 80px; border-radius: 5px;">Delete</a>
                 </div>
             </td>
         </tr>
