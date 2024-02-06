@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class ProductController {
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
         return "productList";
+    }
+    @GetMapping("/delete/{productName}")
+    public RedirectView deleteProduct(@PathVariable String productName) {
+        service.delete(productName);
+        return new RedirectView("/product/list");
     }
 }
