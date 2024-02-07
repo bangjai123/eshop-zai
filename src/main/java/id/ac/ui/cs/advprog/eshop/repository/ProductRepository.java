@@ -19,7 +19,21 @@ public class ProductRepository {
         return productData.iterator();
     }
 
-    public void delete(String productName) {
-        productData.removeIf(product -> product.getProductName().equals(productName));
+    public void delete(String productId) {
+        productData.removeIf(product -> product.getProductId().equals(productId));
+    }
+
+    public void editProduct(String productId, Product editedProduct){
+        Product oldProduct = findProductById(productId);
+        oldProduct.setProductName(editedProduct.getProductName());
+        oldProduct.setProductQuantity(editedProduct.getProductQuantity());
+    }
+    public Product findProductById(String productId){
+        for(int i=0;i<productData.size();i++){
+            if(productData.get(i).getProductId().equals(productId)){
+                return productData.get(i);
+            }
+        }
+        return null;
     }
 }
