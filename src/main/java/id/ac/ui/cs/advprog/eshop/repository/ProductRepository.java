@@ -12,6 +12,9 @@ public class ProductRepository {
     private List<Product> productData = new ArrayList<>();
 
     public Product create(Product product){
+        if(product.getProductId().equals("")){
+            product.ubahProductId();
+        }
         productData.add(product);
         return product;
     }
