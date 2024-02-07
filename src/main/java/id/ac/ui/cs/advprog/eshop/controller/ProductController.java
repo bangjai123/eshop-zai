@@ -36,9 +36,9 @@ public class ProductController {
         model.addAttribute("products", allProducts);
         return "productList";
     }
-    @GetMapping("/delete/{productName}")
-    public RedirectView deleteProduct(@PathVariable String productName) {
+    @DeleteMapping("/delete/{productName}")
+    public String deleteProduct(@PathVariable String productName) {
         service.delete(productName);
-        return new RedirectView("/product/list");
+        return "redirect:/product/list";
     }
 }
