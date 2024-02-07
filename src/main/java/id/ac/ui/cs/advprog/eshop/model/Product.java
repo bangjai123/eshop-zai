@@ -5,12 +5,12 @@ import lombok.Setter;
 
 @Getter@Setter
 public class Product {
-    private String productId;
+    private String productId = "";
     private String productName;
     private int productQuantity;
     private static int productCounter;
 
-    public void ubadProductId(){
+    public void ubahProductId(){
         this.setProductId(""+productCounter);
         productCounter++;
     }
