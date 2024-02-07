@@ -11,6 +11,10 @@ import java.util.List;
 public class ProductRepository {
     private List<Product> productData = new ArrayList<>();
 
+    public List<Product> getProductData(){
+        return this.productData;
+    }
+
     public Product create(Product product){
         if(product.getProductId().equals("")){
             product.ubahProductId();
