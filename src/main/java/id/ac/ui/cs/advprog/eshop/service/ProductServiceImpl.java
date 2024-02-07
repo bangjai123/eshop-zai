@@ -30,4 +30,10 @@ public class ProductServiceImpl implements ProductService {
     public void delete(String productName) {
         productRepository.delete(productName);
     }
+    public void editProduct(String productId, Product editedProduct){
+        productRepository.editProduct(productId, editedProduct);
+    }
+    public Product findProductById(String productId){
+        return productRepository.findProductById(productId);
+    }
 }

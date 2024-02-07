@@ -25,8 +25,8 @@
             <td th:text="${product.productQuantity}"></td>
             <td>
                 <div style="display: flex; gap: 10px;">
-                    <a th:href="@{/product/edit/{productName}(productName=${product.productName})}" class="btn btn-primary" style="width: 80px; border-radius: 5px;">Edit</a>
-                    <form th:action="@{/product/delete/{productName}(productName=${product.productName})}" method="post" style="display: inline;">
+                    <a th:href="@{/product/edit/{productId}(productId=${product.productId})}" class="btn btn-primary" style="width: 80px; border-radius: 5px;">Edit</a>
+                    <form th:action="@{/product/delete/{productId}(productId=${product.productId})}" method="post" style="display: inline;">
                         <input type="hidden" name="_method" th:value="'DELETE'">
                         <button type="submit" class="btn btn-danger" style="width: 80px; border-radius: 5px;" onclick="return confirm('Apakah anda ingin menghapus produk?')">Delete</button>
                     </form>

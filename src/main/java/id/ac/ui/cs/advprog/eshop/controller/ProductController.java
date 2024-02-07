@@ -26,6 +26,7 @@ public class ProductController {
 
     @PostMapping("/create")
     public String createProductPost(@ModelAttribute Product product,Model model){
+        product.ubadProductId();
         service.create(product);
         return "redirect:list";
     }
@@ -36,9 +37,23 @@ public class ProductController {
         model.addAttribute("products", allProducts);
         return "productList";
     }
-    @DeleteMapping("/delete/{productName}")
-    public String deleteProduct(@PathVariable String productName) {
-        service.delete(productName);
+    @DeleteMapping("/delete/{productId}")
+    public String deleteProduct(@PathVariable String productId) {
+        service.delete(productId);
         return "redirect:/product/list";
     }
+
+    @GetMapping("/edit/{productId}")
+    public String editProductPage(@PathVariable String productId, Model model){
+        Product product = service.findProductById(productId);
+        model.addAttribute("product", product);
+        return "editProduct";
+    }
+
+    @PutMapping("/edit/{productId}")
+    public String editProductPut(@PathVariable String productId ,@ModelAttribute Product product,Model model){
+        service.editProduct(productId, product);
+        return "redirect:/product/list";
+    }
+
 }
