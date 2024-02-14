@@ -1,3 +1,5 @@
+TUTORIAL 1
+
 REFLEKSI 1
 Pada exercise pertama ini, saya telah membuat dua fungsionalitas tambahan pada aplikasi ini. Dalam membuat dua fungsionalitas tersebut, saya berusaha sebaik yang saya bisa untuk melakukan coding sesuai standardnya/ Dari sisi clean code, beberapa hal yang telah saya coba untuk implementasikan agar kode saya mudah terbaca dan "clean" adalah sebagai berikut.
 - memberikan penamaan yang meaningful. Pada saat memberikan nama untuk variable maupun fungsi, saya berusaha untuk memberikan nama yang mudah dimengerti bahkan oleh orang yang baru sekali melihatnya. Sebagai contoh, saya memberi nama fungsi untuk mencari produk berdasarkan id dengan nama "findProductById". Contoh lain, saya membuat penghitung untuk menghitung berapa jenis item yang telah disimpan dalam aplikasi dengan nama "product Counter".
@@ -15,3 +17,17 @@ REFLEKSI 2
    - Kejelasan tesnya mungkin menjadi sedikit rancu untuk orang lain yang baru melihatnya. Hal ini karena kemiripan keduanya mungkin saja membuat orang menjadi bingung akan perbedaan fungsinya satu sama lain
    
   Dengan demikian, penambahan test sebenarnya adalah sesuatu yang sangat baik. Akan tetapi, kita tetap perlu berusaha untuk memastikan kejelasan kodenya. Hal tersebut dapat dilakukan dengan prinsip-prinsip clean code. Selain itu, kita perlu memastikan bahwa kode yang kita buat tidak redundant. Jika dapat membuatnya diketik hanya satu kali, tidak perlu membuatnya diketik dua kali.
+
+TUTORIAL 2
+
+REFLEKSI 
+1. Berdasarkan code scanning yang dilakukan menggunakan SonarCloud, terdapat 3 isu utama pada code saya. Saya memutuskan untuk membetulkan semuanya. Isu tersebut adalah sebagai berikut.
+   - Adanya penamaan yang tidak sesuai konvensi
+     Terdapat penamaan fungsi yang tidak sesuai konvensi, yaitu fuction "HalamanUtama". Agar sesuai konvensi, saya mengubahnya menjadi camelCase, yaitu "halamanUtama"
+   - Adanya bagian kode yang tidak digunakan
+     SonarCloud menyarankan untuk menghapus beberapa private attribute yang ada pada class Product karena dianggap tidak berguna. Hal ini dikarenakan tidak ada function yang secara langsung mengubah atau menggunakan attribute-attribute tersebut. Untuk mengatasinya, saya sudah memberi decorative @Getter dan @Setter sehingga semua attribute tersebut sebenanya dapat dijangkau dari luar class.
+   - Multi-threading
+     SonarCloud menyarankan untuk menghapus salah satu function yang memuat static attribute. SonacCloud menyarankannya karena dikhawatirkan hal tersebut dapat membuat saya secara tidak sengaja menggati nilainya. Padahal attribute tesebut saya gunakan untuk memberikan ID produk, yaitu dengan menghitung banyaknya produk. Solusi yang saya lakukan adalah dengan mengganti ID menggunakan UUID yang digenerate secara random.
+
+2. Sudah. CI/CD adalah kependekan dari Continuous Integration dan Continuous Deployment. Prinsip CI/CD adalah prinsip automasi dalam pembuatan program secara continuous. Yang dilakukan pada tutorial ini adalah mengautomasi testing yang dilakukan dengan menggunakan tool SonarCloud dan ScoreCard. Kedua tools tersebut akan melakukan testing secara otomatis ketika pengguna melakukan perubahan pada repositori atau branch. Untuk deployment, saya menggunakan Koyeb yang akan melakukan deployment ke `https://mild-lizard-bangjai123.koyeb.app/` secara otomatis setiap saya melakukan push ke github. Hal ini sesuai dengan prinsip automasi yang berkelanjutan pada CI/CD.
+     

@@ -157,4 +157,18 @@ public class ProductRepositoryTest {
 
 
     }
+    @Test
+    void testGenerateProductId(){
+        Product product1 = new Product();
+        productRepository.create(product1);
+        assertNotEquals(product1.getProductId(),"");
+
+    }
+    @Test
+    void testIfIdDoesNotExists(){
+        Product product1 = new Product();
+        productRepository.create(product1);
+        assertNull(productRepository.findProductById("null"));
+        assertNotNull(productRepository.findProductById(product1.getProductId()));
+    }
 }
