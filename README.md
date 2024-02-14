@@ -1,4 +1,5 @@
 TUTORIAL 1
+
 REFLEKSI 1
 Pada exercise pertama ini, saya telah membuat dua fungsionalitas tambahan pada aplikasi ini. Dalam membuat dua fungsionalitas tersebut, saya berusaha sebaik yang saya bisa untuk melakukan coding sesuai standardnya/ Dari sisi clean code, beberapa hal yang telah saya coba untuk implementasikan agar kode saya mudah terbaca dan "clean" adalah sebagai berikut.
 - memberikan penamaan yang meaningful. Pada saat memberikan nama untuk variable maupun fungsi, saya berusaha untuk memberikan nama yang mudah dimengerti bahkan oleh orang yang baru sekali melihatnya. Sebagai contoh, saya memberi nama fungsi untuk mencari produk berdasarkan id dengan nama "findProductById". Contoh lain, saya membuat penghitung untuk menghitung berapa jenis item yang telah disimpan dalam aplikasi dengan nama "product Counter".
@@ -18,6 +19,7 @@ REFLEKSI 2
   Dengan demikian, penambahan test sebenarnya adalah sesuatu yang sangat baik. Akan tetapi, kita tetap perlu berusaha untuk memastikan kejelasan kodenya. Hal tersebut dapat dilakukan dengan prinsip-prinsip clean code. Selain itu, kita perlu memastikan bahwa kode yang kita buat tidak redundant. Jika dapat membuatnya diketik hanya satu kali, tidak perlu membuatnya diketik dua kali.
 
 TUTORIAL 2
+
 REFLEKSI 
 1. Berdasarkan code scanning yang dilakukan menggunakan SonarCloud, terdapat 3 isu utama pada code saya. Saya memutuskan untuk membetulkan semuanya. Isu tersebut adalah sebagai berikut.
    - Adanya penamaan yang tidak sesuai konvensi
