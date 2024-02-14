@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController {
     @GetMapping("/")
 
-    public String HalamanUtama(Model model){
+    public String halamanUtama(Model model){
         return "Home";
     }
 }
