@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
+
+@Repository
 public class CarRepository {
     private List<Car> carData = new ArrayList<>();
     static int id=0;
