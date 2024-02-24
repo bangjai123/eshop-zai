@@ -11,7 +11,9 @@ Lalu, dari segi secure coding, terus terang sejauh ini belum terlalu terasa kare
 </details>
 <details>
 <summary>REFLEKSI 2</summary>
+   
 1. Setelah membuat unit test, saya merasa cukup senang karena mungkin itu adalah unit test pertama yang saya buat sendiri. Meskipun masih sangat sederhana, semoga itu menjadi awal yang baik untuk perjalanan saya ke depannya. Jumlah unit test yang dibutuhkan oleh sebuah class sebenarnya mungkin tidak dapat ditentukan secara umum. Tiap class mungkin memiliki jumlah fungsi yang berbeda, kemungkinan atas kasus penyimpangan yang berbeda, serta faktor-faktor lain yang dapat mempengaruhi kebutuhan unit test yang berbeda. Dengan demikian, menurut saya setiap class memiliki kebutuhan yang berbeda. Selain itu, saya melihat bahwa semakin banyak unit test semakin baik karena artinya banyak hal yang terprediksi salah dapat teratasi. Meskipun demikian, kita hanya dapat membuat unit test sebanyak mungkin dari hal-hal yang kita prediksi dapat terjadi. Hal ini berarti sebuah code yang memiliki 100% code coverage belum tentu aman dari bug. Hal ini disebabkan unit test yang kita buat baru dari hal-hal yang kita bisa prediksi
+   
 2. Apa bila ditinjau dari sisi issue clean code, terdapat beberapa hal yang perlu diperhatikan dan berisiko menurunkan tingkat kualitas clean codenya. Beberapa hal tersebut di antaranya adalah sebagai berikut.
    
    - Kemungkinan terdapat kode yang terduplikasi. Seperti yang disebutkan, keduanya memiliki setup prosedur dan instance variables yang mirip. Hal ini dapat diimprove misalnya dengan membuat superclass yang memiliki kode yang mirip antara keduanya. 
@@ -23,6 +25,7 @@ Lalu, dari segi secure coding, terus terang sejauh ini belum terlalu terasa kare
 # TUTORIAL 2
 <details>
 <summary>REFLEKSI</summary>
+   
 1. Berdasarkan code scanning yang dilakukan menggunakan SonarCloud, terdapat 3 isu utama pada code saya. Saya memutuskan untuk membetulkan semuanya. Isu tersebut adalah sebagai berikut.
    - Adanya penamaan yang tidak sesuai konvensi
      Terdapat penamaan fungsi yang tidak sesuai konvensi, yaitu fuction "HalamanUtama". Agar sesuai konvensi, saya mengubahnya menjadi camelCase, yaitu "halamanUtama"
