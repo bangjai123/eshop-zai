@@ -40,6 +40,7 @@ Lalu, dari segi secure coding, terus terang sejauh ini belum terlalu terasa kare
 # TUTORIAL 3
 <details>
 <summary>REFLEKSI</summary>
+   
 1. Prinsip SOLID yang saya implementasikan pada projek saya:
    - S:
      S dalam SOLID berarti _single responsibility principle_. artinya, setiap module pada project sebaiknya hanya memiliki satu role atau job. Hal ini saya lakukan dengan memisahkan Car Controller dan Home Controller dan Project Controller.
