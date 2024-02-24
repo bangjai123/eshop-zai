@@ -37,5 +37,5 @@ abstract class GeneralRepository<T extends Product>{
     public List<T> getItemData(){
         return itemData;
     }
-
+    public abstract T update(String id, T updatedItem);
 }
