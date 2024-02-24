@@ -28,7 +28,7 @@ public class CarServiceImpl implements GeneralService<Car>{
     }
     @Override
     public Car findById(String carId){
-        Car car = carRepository.findById((carId));
+        Car car = (Car) carRepository.findById((carId));
         return car;
     }
 

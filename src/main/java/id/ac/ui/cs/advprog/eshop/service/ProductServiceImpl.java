@@ -32,10 +32,10 @@ public class ProductServiceImpl implements GeneralService<Product> {
         productRepository.delete(productName);
     }
     public void update(String productId, Product editedProduct){
-        productRepository.editProduct(productId, editedProduct);
+        productRepository.update(productId, editedProduct);
     }
     public Product findById(String productId){
-        return productRepository.findProductById(productId);
+        return productRepository.findById(productId);
     }
 
 }
