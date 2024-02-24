@@ -1,11 +1,11 @@
 package id.ac.ui.cs.advprog.eshop.controller;
 
 import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import id.ac.ui.cs.advprog.eshop.service.GeneralService;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/car")
 class CarController extends ProductController{
     @Autowired
-    private CarService carService;
+    private GeneralService<Car> carService;
 
     @GetMapping("/createCar")
     public String createCarPage(Model model){
@@ -52,7 +52,7 @@ class CarController extends ProductController{
 
     @PostMapping("/deleteCar")
     public String deleteCar(@RequestParam("carId") String carId){
-        carService.deleteCarById(carId);
+        carService.delete(carId);
         return "redirect:listCar";
     }
 }

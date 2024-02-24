@@ -169,6 +169,6 @@ public class ProductRepositoryTest {
         Product product1 = new Product();
         productRepository.create(product1);
         assertNull(productRepository.findProductById("null"));
-        assertNotNull(productRepository.findProductById(product1.getProductId()));
+        assertNotNull(productRepository.findProductById(product1.getId()));
     }
 }
