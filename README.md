@@ -37,4 +37,16 @@ Lalu, dari segi secure coding, terus terang sejauh ini belum terlalu terasa kare
    - O:
      O dalam SOLID berarti _open-closed principle_. artinya, kode yang dibuat dapat diextend tanpa mengubah kode yang sudah ada. Saya melakukannya dengan melakukan inheritence dengan membuat atribute dan method pada parent class tidak sensitive pada class tertentu. Dengan demikian, kode dapat diextend tanpa mengubah kode awal
    - L:
-     L dalam SOLID berarti _liskov substitution principle_. LSP adalah prinsip di mana jika B adalah subclass dari A, kita dapat melakukan substitusi antara A dan B tanpa menimbulkan _unexpected behavior_ pada kode. 
+     L dalam SOLID berarti _liskov substitution principle_. LSP adalah prinsip di mana jika B adalah subclass dari A, kita dapat melakukan substitusi antara A dan B tanpa menimbulkan _unexpected behavior_ pada kode. Hal ini dapat dilihat pada inheritence yang saya lakukan pada GeneralController (abstract) yang memiliki subclass CarRepository dan ProductRepository.
+   - D:
+     D dalam SOLID berarti _Dependency inversion principle_. Prinsip ini menyarankan penggunaan interface dari pada class untuk memanggil objek pada class lain. Saya mengimplementasikannya dnegna membuat interface GeneralService<T> untuk menampung class CarServiceImpl dan ProductServiceImpl
+
+2. Beberapa keuntungan SOLID:
+   Secara umum, prinsip SOLID bertujuan untuk meningkatkan maintainability dari kode yang kita miliki. prinsip SOLID akan menghasilkan kode yang lebih clean, lebih modular, dan lebih mudah dimaintain. Dengan begitu, SOLID akan mengurangi risiko software yang fragile, mengurangi effort dalam pengembangan aplikasi, dan mendorong pengembangan sistem software yang lebih robust dan adaptable.
+
+   Contoh penggunaan prinsip SOLID pada projek saya adalah sebagaimana telah saya sebutkan pada poin-poin di nomor satu. Saya melihat, penerapan SRP pada project saya memungkinkan saya melakukan _tracking_ terhadap error secara lebih _effortless_ karena saya mengetahui bagian mana terjadinya error. Selain itu, penerapan OCP dan LSP memberikan saya fleksibilitas yang lebih tinggi dalam melakukan perubahan terhadap kode saya.
+
+4. Beberapa kerugian tidak menerapkan SOLID:
+   Tidak dilakukannya prinsip-prinsip SOLID dapat mengurangi maintainability program yang dibuat. Modifikasi yang akan dilakukan di masa depan bisa jadi membutuhkan effort yang lebih besar dari pada jika menerapkan prinsip SOLID. Selain itu, tidak diterapkannya SOLID membuat kode menjadi kurang reusable, memiliki ketergantungan yang tinggi, dan kemungkinan suatu perubahan menyebabkan perubahan behaviour tidak terduga pada bagian lain.
+
+   Dalam konteks projek saya, saya memperkirakan, jika saya tidak menerapkan SRP, saya akan kesulitan untuk memaintain bagian fungsionalitas tertentu pada kode saya. Hal ini dapat terjadi jika tidak menggunakan SRP karena kode yang saya buat akan memiliki fungsi terlalu banyak pada satu bagian. Hal ini akan sangat melelahkan untuk untuk memaintainnya. Selain itu, tanpa OCP dan LSP, saya akan memiliki fleksibilitas yang rendah dalam mengubah kode saya. Hal ini disebabkan kode yang saya miliki bisa saja memiliki ketergantungan satu sama lain. Dengan demikian, mengubah sebagian kode dapat berisiko mengubah banyak behaviour dari kode secara umum.
