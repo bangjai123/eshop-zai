@@ -9,7 +9,7 @@ Pada exercise pertama ini, saya telah membuat dua fungsionalitas tambahan pada a
 - Penggunaan fungsi yang singkat. Sebagaimana telah dijabarkan pada saat perkuliahan, sebaiknya fungsi yang dibuat oleh programmer dibuat sesingkat mungkin. Fungsi tersebut sebaiknya hanya melakukan satu hal. Selain itu, fungsi yang saya buat memiliki tidak lebih dari 20 baris. Saya juga memecah fungsi yang dapat dipecah. Sebagai contoh, saya memecah fungsi mencari produk dari mengedit dan menghapus. Dengan demikian, masing-masing fungsi hanya memiliki satu fungsionalitas. Sedangkan untuk kebutuhan mencari produknya, saya melakukan pemanggilan fungsi findProductById pada saat ingin mengedit dan menghapus
   
 - Menurut penuturan Pak Ade (dosen kelas A), comment bukanlah sesuatu yang sebaiknya dijadikan fokus pada zaman sekarang. Lebih baik menjadikan kode kita terbaca dari pada membuat banyak comment untuk menjelaskan kodenya. Dengan demikian, saya memilih untuk sejelas mungkin menulis penamaan serta penulisan kode sehingga itu terbaca dari pada membuat komen
-- 
+
 - Layout dan formatting. Saya menggunakan formatting yang saat ini banyak digunakan yaitu indentasi 4 baris untuk setiap satu indentasi yang diperlukan.
 
 Lalu, dari segi secure coding, terus terang sejauh ini belum terlalu terasa karena code yang dibuat masih berupa aplikasi sederhana yang belum memerlukan keamanan tingkat tinggi. Hal ini dikarenakan aplikasi yang dibuat masih belum membutuhkan hal-hal seperti autentikasi, autorisasi, input data validation, maupun output data encoding. Ke depannya, saya sangat tertarik untuk melatih kemampuan saya dalam melakukan secure coding
