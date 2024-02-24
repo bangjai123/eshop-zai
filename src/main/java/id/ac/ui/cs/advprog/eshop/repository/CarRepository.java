@@ -8,14 +8,14 @@ import java.util.UUID;
 
 @Repository
 public class CarRepository extends GeneralRepository<Car>{
-
-    public Car update(String id, Car updatedCar){
+    @Override
+    public Car update(String id, Car updatedItem){
         for(int i = 0; i < itemData.size(); i++){
             Car car = (Car) itemData.get(i);
             if(car.getItemId().equals(id)){
-                car.setItemName(updatedCar.getItemName());
-                car.setCarColor(updatedCar.getCarColor());
-                car.setItemQuantity(updatedCar.getItemQuantity());
+                car.setItemName(updatedItem.getItemName());
+                car.setCarColor(updatedItem.getCarColor());
+                car.setItemQuantity(updatedItem.getItemQuantity());
                 return car;
             }
         }

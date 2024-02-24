@@ -12,9 +12,11 @@ import java.util.UUID;
 @Repository
 public class ProductRepository extends GeneralRepository<Product> {
 
-    public void update(String productId, Product editedProduct){
+    @Override
+    public Product update(String productId, Product updatedItem){
         Product oldProduct = findById(productId);
-        oldProduct.setItemName(editedProduct.getItemName());
-        oldProduct.setItemQuantity(editedProduct.getItemQuantity());
+        oldProduct.setItemName(updatedItem.getItemName());
+        oldProduct.setItemQuantity(updatedItem.getItemQuantity());
+        return updatedItem;
     }
 }
