@@ -1,13 +1,12 @@
 package id.ac.ui.cs.advprog.eshop.controller;
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
+import id.ac.ui.cs.advprog.eshop.service.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
-
 import java.util.List;
 
 @Controller
@@ -15,27 +14,28 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService service;
+    private GeneralService<Product> service;
 
     @GetMapping("/create")
-    public String createProductPage(Model model){
+    public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "createProduct";
+        return "CreateProduct";
     }
 
     @PostMapping("/create")
-    public String createProductPost(@ModelAttribute Product product,Model model){
+    public String createProductPost(@ModelAttribute Product product, Model model) {
         service.create(product);
         return "redirect:list";
     }
 
     @GetMapping("/list")
-    public String productListPage(Model model){
+    public String productListPage(Model model) {
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
-        return "productList";
+        return "ProductList";
     }
+
     @DeleteMapping("/delete/{productId}")
     public String deleteProduct(@PathVariable String productId) {
         service.delete(productId);
@@ -43,15 +43,15 @@ public class ProductController {
     }
 
     @GetMapping("/edit/{productId}")
-    public String editProductPage(@PathVariable String productId, Model model){
-        Product product = service.findProductById(productId);
+    public String editProductPage(@PathVariable String productId, Model model) {
+        Product product = service.findById(productId);
         model.addAttribute("product", product);
-        return "editProduct";
+        return "EditProduct";
     }
 
     @PutMapping("/edit/{productId}")
-    public String editProductPut(@PathVariable String productId ,@ModelAttribute Product product,Model model){
-        service.editProduct(productId, product);
+    public String editProductPut(@PathVariable String productId, @ModelAttribute Product product, Model model) {
+        service.update(productId, product);
         return "redirect:/product/list";
     }
 

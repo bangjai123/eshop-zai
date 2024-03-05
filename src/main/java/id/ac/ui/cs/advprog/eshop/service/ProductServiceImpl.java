@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements GeneralService<Product> {
     @Autowired
     private ProductRepository productRepository;
 
@@ -30,10 +30,11 @@ public class ProductServiceImpl implements ProductService {
     public void delete(String productName) {
         productRepository.delete(productName);
     }
-    public void editProduct(String productId, Product editedProduct){
-        productRepository.editProduct(productId, editedProduct);
+    public void update(String productId, Product editedProduct){
+        productRepository.update(productId, editedProduct);
     }
-    public Product findProductById(String productId){
-        return productRepository.findProductById(productId);
+    public Product findById(String productId){
+        return productRepository.findById(productId);
     }
+
 }
