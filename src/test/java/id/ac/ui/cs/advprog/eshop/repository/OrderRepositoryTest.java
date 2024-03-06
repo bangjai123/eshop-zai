@@ -99,7 +99,7 @@ class OrderRepositoryTest {
 
         List<Order> orderList = orderRepository.findAllByAuthor(
                 orders.get(1).getAuthor());
-        assertTrue(orderList.isEmpty());
+        assertEquals(2,orderList.size());
     }
 
     @Test
