@@ -1,6 +1,8 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
 import id.ac.ui.cs.advprog.eshop.enums.OrderStatus;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,37 +44,37 @@ public class PaymentTest {
     @Test
     void testCreatePaymentSuccessStatus() {
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-            "CashOnDelivery",this.map, this.order, "SUCCESS");
-        assertEquals("SUCCESS", payment.getStatus());
+            PaymentMethod.CASH_ON_DELIVERY.getValue(), this.map, this.order, PaymentStatus.SUCCESS.getValue());
+        assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
     }
 
     @Test
     void testCreatePaymentRejectedStatus() {
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-            "CashOnDelivery",this.map, this.order, "REJECTED");
-        assertEquals("REJECTED", payment.getStatus());
+            PaymentMethod.CASH_ON_DELIVERY.getValue(), this.map, this.order, PaymentStatus.REJECTED.getValue());
+        assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
     @Test
     void testCreatePaymentInvalidStatus() {
         assertThrows(IllegalArgumentException.class,()->{
             Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-                "CashOnDelivery",this.map, this.order, "AMPUN");
+                    PaymentMethod.CASH_ON_DELIVERY.getValue(),this.map, this.order, "AMPUN");
         });
     }
 
     @Test
     void testCreatePaymentMethodCashOnDelivery(){
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-            "CashOnDelivery",this.map, this.order);
-        assertEquals("CashOnDelivery", payment.getMethod());
+                PaymentMethod.CASH_ON_DELIVERY.getValue(),this.map, this.order);
+        assertEquals(PaymentMethod.CASH_ON_DELIVERY.getValue(), payment.getMethod());
     }
 
     @Test
     void testCreatePaymentMethodVoucher(){
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-            "Voucher",this.map, this.order);
-        assertEquals("Voucher", payment.getMethod());
+                PaymentMethod.VOUCHER.getValue(),this.map, this.order);
+        assertEquals(PaymentMethod.VOUCHER.getValue(), payment.getMethod());
     }
 
     @Test
@@ -86,7 +88,7 @@ public class PaymentTest {
     @Test
     void testSetToInvalidStatus() {
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-                "Voucher", this.map, this.order);
+                PaymentMethod.VOUCHER.getValue(), this.map, this.order);
         assertThrows(IllegalArgumentException.class, () -> payment.setStatus("Utang"));
     }
 
