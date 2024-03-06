@@ -9,13 +9,13 @@ import java.util.UUID;
 @Repository
 public class CarRepository extends GeneralRepository<Car>{
     @Override
-    public Car update(String id, Car updatedItem){
-        for(int i = 0; i < itemData.size(); i++){
-            Car car = (Car) itemData.get(i);
-            if(car.getItemId().equals(id)){
-                car.setItemName(updatedItem.getItemName());
-                car.setCarColor(updatedItem.getCarColor());
-                car.setItemQuantity(updatedItem.getItemQuantity());
+    public Car update(String id, Car updatedProduct){
+        for(int i = 0; i < productData.size(); i++){
+            Car car = (Car) productData.get(i);
+            if(car.getProductId().equals(id)){
+                car.setProductName(updatedProduct.getProductName());
+                car.setCarColor(updatedProduct.getCarColor());
+                car.setProductQuantity(updatedProduct.getProductQuantity());
                 return car;
             }
         }

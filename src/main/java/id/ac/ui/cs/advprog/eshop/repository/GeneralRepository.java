@@ -10,32 +10,32 @@ import java.util.UUID;
 
 @Repository
 abstract class GeneralRepository<T extends Product>{
-    List<T> itemData = new ArrayList<>();
+    List<T> productData = new ArrayList<>();
 
-    public T create(T item){
-        if(item.getItemId()==null){
+    public T create(T product){
+        if(product.getProductId()==null){
             UUID uuid = UUID.randomUUID();
-            item.setItemId(uuid.toString());
+            product.setProductId(uuid.toString());
         }
-        itemData.add(item);
-        return item;
+        productData.add(product);
+        return product;
     }
     public Iterator<T> findAll(){
-        return itemData.iterator();
+        return productData.iterator();
     }
     public T findById(String id){
-        for(T item : itemData){
-            if(item.getItemId().equals(id)){
-                return item;
+        for(T product : productData){
+            if(product.getProductId().equals(id)){
+                return product;
             }
         }
         return null;
     }
     public void delete(String id){
-        itemData.removeIf(item -> item.getItemId().equals(id));
+        productData.removeIf(product -> product.getProductId().equals(id));
     }
-    public List<T> getItemData(){
-        return itemData;
+    public List<T> getProductData(){
+        return productData;
     }
-    public abstract T update(String id, T updatedItem);
+    public abstract T update(String id, T updatedProduct);
 }
