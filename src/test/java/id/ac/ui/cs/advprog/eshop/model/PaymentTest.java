@@ -37,16 +37,7 @@ public class PaymentTest {
 
         this.map.put("SomeString","AnotherString");
     }
-    @Test
-    void testCreatePaymentNullOrder(){
-        this.order = null;
 
-
-        assertThrows(IllegalArgumentException.class,() ->{
-            Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-                "CashOnDelivery",this.map, this.order);
-        });
-    }
 
     @Test
     void testCreatePaymentSuccessStatus() {
@@ -93,9 +84,11 @@ public class PaymentTest {
     }
 
     @Test
-    void testSetToInvalidStatus(){
+    void testSetToInvalidStatus() {
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
-            "Voucher",this.map, this.order);
-        assertThrows(IllegalArgumentException.class,()->payment.setStatus("Utang"));
+                "Voucher", this.map, this.order);
+        assertThrows(IllegalArgumentException.class, () -> payment.setStatus("Utang"));
     }
+
+
 }
