@@ -37,7 +37,7 @@ public class OrderTest {
     }
 
     @Test
-    void testCreateOrderDefaultStatus() throws IllegalAccessException {
+    void testCreateOrderDefaultStatus() {
         Order order = new Order("13652556-012a-4c07-b546-54eb1396d79b",
                 this.products, 1708560000L,"Safira Sudrajat");
 
@@ -53,7 +53,7 @@ public class OrderTest {
     }
 
     @Test
-    void testCreateOrderSuccessStatus() throws IllegalAccessException {
+    void testCreateOrderSuccessStatus() {
         Order order = new Order("13652556-012a-4c07-b546-54eb1396d79b",
                 this.products, 1708560000L,"Safira Sudrajat",OrderStatus.SUCCESS.getValue());
         assertEquals(OrderStatus.SUCCESS.getValue(), order.getStatus());
@@ -67,7 +67,7 @@ public class OrderTest {
     }
 
     @Test
-    void testStatusToCancelled() throws IllegalAccessException {
+    void testStatusToCancelled(){
         Order order = new Order("13652556-012a-4c07-b546-54eb1396d79b",
                 this.products, 1708560000L,"Safira Sudrajat");
         order.setStatus(OrderStatus.CANCELLED.getValue());
@@ -75,7 +75,7 @@ public class OrderTest {
     }
 
     @Test
-    void testSetStatusToInvalidStatus() throws IllegalAccessException {
+    void testSetStatusToInvalidStatus(){
         Order order = new Order("13652556-012a-4c07-b546-54eb1396d79b",
                 this.products, 1708560000L,"Safira Sudrajat");
         assertThrows(IllegalArgumentException.class, () -> order.setStatus("MEOW"));
