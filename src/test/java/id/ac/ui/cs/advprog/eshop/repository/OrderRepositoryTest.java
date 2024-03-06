@@ -95,8 +95,9 @@ class OrderRepositoryTest {
 
     @Test
     void testFindAllByAuthorIfAuthorCorrect(){
-        orderRepository.save(orders.get(1));
-
+        for(Order order:orders){
+            orderRepository.save(order);
+        }
         List<Order> orderList = orderRepository.findAllByAuthor(
                 orders.get(1).getAuthor());
         assertEquals(2,orderList.size());
