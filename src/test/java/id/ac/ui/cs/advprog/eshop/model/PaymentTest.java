@@ -96,6 +96,6 @@ public class PaymentTest {
     void testSetToInvalidStatus(){
         Payment payment = new Payment("13652556-012a-4c07-b546-54eb139d79b",
             "Voucher",this.map, this.order);
-        assertThrows(IllegalArgumentException.class,()->payment.setStatus("Utang"))
+        assertThrows(IllegalArgumentException.class,()->payment.setStatus("Utang"));
     }
 }
