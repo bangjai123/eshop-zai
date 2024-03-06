@@ -61,9 +61,26 @@ Lalu, dari segi secure coding, terus terang sejauh ini belum terlalu terasa kare
 
    Contoh penggunaan prinsip SOLID pada projek saya adalah sebagaimana telah saya sebutkan pada poin-poin di nomor satu. Saya melihat, penerapan SRP pada project saya memungkinkan saya melakukan _tracking_ terhadap error secara lebih _effortless_ karena saya mengetahui bagian mana terjadinya error. Selain itu, penerapan OCP dan LSP memberikan saya fleksibilitas yang lebih tinggi dalam melakukan perubahan terhadap kode saya.
 
-4. Beberapa kerugian tidak menerapkan SOLID:
+3. Beberapa kerugian tidak menerapkan SOLID:
    Tidak dilakukannya prinsip-prinsip SOLID dapat mengurangi maintainability program yang dibuat. Modifikasi yang akan dilakukan di masa depan bisa jadi membutuhkan effort yang lebih besar dari pada jika menerapkan prinsip SOLID. Selain itu, tidak diterapkannya SOLID membuat kode menjadi kurang reusable, memiliki ketergantungan yang tinggi, dan kemungkinan suatu perubahan menyebabkan perubahan behaviour tidak terduga pada bagian lain.
 
    Dalam konteks projek saya, saya memperkirakan, jika saya tidak menerapkan SRP, saya akan kesulitan untuk memaintain bagian fungsionalitas tertentu pada kode saya. Hal ini dapat terjadi jika tidak menggunakan SRP karena kode yang saya buat akan memiliki fungsi terlalu banyak pada satu bagian. Hal ini akan sangat melelahkan untuk untuk memaintainnya. Selain itu, tanpa OCP dan LSP, saya akan memiliki fleksibilitas yang rendah dalam mengubah kode saya. Hal ini disebabkan kode yang saya miliki bisa saja memiliki ketergantungan satu sama lain. Dengan demikian, mengubah sebagian kode dapat berisiko mengubah banyak behaviour dari kode secara umum.
 
+</details>
+
+# TUTORIAL 4
+<details>
+<summary>REFLEKSI</summary>
+
+1. Percival (2017) menyebutkan tiga tujuan utama yang perlu dievaluasi dari test kita, yaitu correctness, maintainability, dan productive workflow. Iya, menurut saya, flow TDD seperti ini cukup useful bagi saya. Degnan flow seperti ini, pertama saya akan memperkirakan test seprti apa yang harus saya miliki untuk menjamin program saya sesuai requirements. Dari situ, saya dapat meninjau correctness dari test saya. Lalu, dari sisi maintainability, penggunaan flow TDD memudahkan saya menjaga maintainability dari kode maupun test saya. Lalu, dengan flow TDD ini, saya merasa lebih produktif karena tiap task yang harus dibuat, memiliki flow tersendiri sehingga menambah produktivitas saya. Dengan demikian, flow TDD ini sudah berguna bagi saya.
+
+2. Iya, menurut saya sudah sesuai dengan prinsip F.I.R.S.T.
+   - F (Fast): menurut saya, test yang dibuat tidak menginterupsi workflow saya. Dengan demikian, masih memenuhi F.
+   - I (Isolated): Test yang saya buat tidak mengubah state dari function. Dengan demikian, memenuhi I.
+   - R (Repeatable): Test yang saya buat dapat dilakukan berulang kali dan memiliki hasil yang konsisten. Dengan demikian, memenuhi R.
+   - S (Self-validatin): Test yang saya buat dapat dibaca dengan mudah oleh manusia. Dengan demikian, memiliki ketentuan yang strict dan dapat diself-validating.
+   - T (Thorough): Test yang saya buat menurut saya telah mengcover happy and unhappy paths. dengan demikian, memnuhi T.
+
+   Melihat rincian di atas, menurut saya, test yang saya buat telah memenuhi F.I.R.S.T.
+   
 </details>
