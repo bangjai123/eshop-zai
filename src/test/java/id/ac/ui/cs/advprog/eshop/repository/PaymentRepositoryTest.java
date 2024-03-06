@@ -24,7 +24,7 @@ class PaymentRepositoryTest {
     void setUp() {
         Map<String,String> contoh = new HashMap<>();
         contoh.put("SomeString","AnotherString");
-        paymentrepository = new Paymentrepository();
+        paymentRepository = new PaymentRepository();
 
         List<Product> products = new ArrayList<>();
         Product product1 = new Product();
@@ -53,9 +53,9 @@ class PaymentRepositoryTest {
     void testSaveCreate() {
 
         Payment payment = payments.get(1);
-        Payment result = paymentrepository.save(payment);
+        Payment result = paymentRepository.save(payment);
 
-        Payment findResult = paymentrepository.findById(payments.get(1).getId());
+        Payment findResult = paymentRepository.findById(payments.get(1).getId());
         assertEquals(payment.getId(), result.getId());
         assertEquals(payment.getId(), findResult.getId());
         assertEquals(payment.getStatus(), findResult.getStatus());
@@ -65,11 +65,11 @@ class PaymentRepositoryTest {
     @Test
     void testSaveUpdate() {
         Payment payment = payments.get(1);
-        paymentrepository.save(payment);
+        paymentRepository.save(payment);
         Payment newPayment = new Payment(payment.getId(),payment.getMethod(), payment.getMap(), payment.getOrder());
-        Payment result = paymentrepository.save(newPayment);
+        Payment result = paymentRepository.save(newPayment);
 
-        Payment findResult = paymentrepository.findById(payments.get(1).getId());
+        Payment findResult = paymentRepository.findById(payments.get(1).getId());
         assertEquals(payment.getId(), result.getId());
         assertEquals(payment.getId(), findResult.getId());
         assertEquals(payment.getStatus(), findResult.getStatus());
@@ -81,10 +81,10 @@ class PaymentRepositoryTest {
     void testFindByIdIfIdFound() {
 
         for (Payment payment : payments) {
-            paymentrepository.save(payment);
+            paymentRepository.save(payment);
         }
 
-        Payment findResult = paymentrepository.findById(payments.get(1).getId());
+        Payment findResult = paymentRepository.findById(payments.get(1).getId());
         assertEquals(payments.get(1).getId(), findResult.getId());
         assertEquals(payments.get(1).getMap(), findResult.getMap());
         assertEquals(payments.get(1).getOrder(), findResult.getOrder());
@@ -94,10 +94,18 @@ class PaymentRepositoryTest {
     @Test
     void testFindByIdIfIdNotFound(){
         for(Payment payment : payments) {
-            paymentrepository.save(payment);
+            paymentRepository.save(payment);
         }
 
-        Order findResult = paymentrepository.findById("zczc");
+        Payment findResult = paymentRepository.findById("zczc");
         assertNull(findResult);
+    }
+
+    @Test
+    void testgetAllPayments(){
+        for(Payment payment : payments) {
+            paymentRepository.save(payment);
+        }
+        assertEquals(paymentRepository.getAllPayments().size(),payments.size());
     }
 }
